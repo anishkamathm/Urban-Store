@@ -1,6 +1,10 @@
 import i18n from '../i18n.js';
 
-const API_BASE = '/api';
+// Resolve backend URL from Vite environment variable (for Vercel / Render deployment)
+// Examples: 'https://my-urban-store.onrender.com' or 'https://my-urban-store.onrender.com/api'
+const RAW_BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_API_URL || '').trim();
+const CLEAN_BACKEND_URL = RAW_BACKEND_URL.replace(/\/api\/?$/, '').replace(/\/$/, '');
+const API_BASE = CLEAN_BACKEND_URL ? `${CLEAN_BACKEND_URL}/api` : '/api';
 
 function getHeaders() {
   const headers = {

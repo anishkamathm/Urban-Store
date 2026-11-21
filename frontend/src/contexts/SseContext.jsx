@@ -14,7 +14,11 @@ export function SseProvider({ children }) {
     let eventSource = null;
 
     try {
-      eventSource = new EventSource('/events');
+      const rawBackend = (import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_API_URL || '').trim();
+      const cleanBackend = rawBackend.replace(/\/api\/?$/, '').replace(/\/$/, '');
+      const sseUrl = cleanBackend ? `${cleanBackend}/events` : '/events';
+
+      eventSource = new EventSource(sseUrl);
 
       eventSource.onopen = () => {
         setIsConnected(true);
