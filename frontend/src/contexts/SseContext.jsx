@@ -14,7 +14,8 @@ export function SseProvider({ children }) {
     let eventSource = null;
 
     try {
-      const rawBackend = (import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_API_URL || '').trim();
+      const defaultUrl = import.meta.env.DEV ? '' : 'https://urban-store-kmct.onrender.com';
+      const rawBackend = (import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_API_URL || defaultUrl).trim();
       const cleanBackend = rawBackend.replace(/\/api\/?$/, '').replace(/\/$/, '');
       const sseUrl = cleanBackend ? `${cleanBackend}/events` : '/events';
 
