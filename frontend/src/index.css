@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-purple: #581C87;
+  --primary-purple-hover: #6B21A8;
+  --bg-soft-lavender: #FAF5FF;
+  --bg-gradient-page: linear-gradient(135deg, #F5F3FF 0%, #FAF5FF 50%, #FDF2F8 100%);
+}
+
+@layer base {
+  body {
+    @apply antialiased text-slate-800;
+    background: linear-gradient(135deg, #F8F5FF 0%, #FAF5FF 40%, #FFF5F8 100%);
+    min-height: 100vh;
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, .heading-serif {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Receipt Print Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-receipt, #printable-receipt * {
+    visibility: visible;
+  }
+  #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 16px;
+    background: white !important;
+    color: black !important;
+  }
+}

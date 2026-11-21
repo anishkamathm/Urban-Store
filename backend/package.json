@@ -1,0 +1,32 @@
+{
+  "name": "urban-store-backend",
+  "version": "1.0.0",
+  "description": "Backend engine for Urban Store: Omnichannel POS, REST, SSE, Aiven PG, Aiven Kafka, and Aiven OpenSearch",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "consumer": "node src/consumer.js",
+    "init-db": "node src/scripts/initDb.js",
+    "purge-legacy": "node src/scripts/cleanLegacyProducts.js",
+    "seed": "node src/scripts/seedData.js",
+    "seed:opensearch": "node src/scripts/indexOpenSearch.js",
+    "test:concurrency": "node src/scripts/testConcurrency.js",
+    "verify": "node src/scripts/verifyApi.js"
+  },
+  "dependencies": {
+    "@opensearch-project/opensearch": "^2.10.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "kafkajs": "^2.2.4",
+    "pg": "^8.13.1",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

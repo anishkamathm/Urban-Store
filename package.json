@@ -1,0 +1,36 @@
+{
+  "name": "shopmart-aiven-solution",
+  "version": "1.0.0",
+  "description": "ShopMart: A complete, bilingual (English + Kannada) retail engine powered by Aiven PostgreSQL, Aiven Apache Kafka, and Aiven OpenSearch.",
+  "scripts": {
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:all": "concurrently \"npm run dev:backend\" \"npm run dev:consumer\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:consumer": "cd backend && npm run consumer",
+    "dev:frontend": "cd frontend && npm run dev",
+    "purge-legacy": "cd backend && npm run purge-legacy",
+    "seed": "cd backend && npm run seed",
+    "seed:opensearch": "cd backend && npm run seed:opensearch",
+    "test:concurrency": "cd backend && npm run test:concurrency",
+    "verify": "cd backend && npm run verify",
+    "build": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "aiven",
+    "postgresql",
+    "kafka",
+    "opensearch",
+    "react",
+    "vite",
+    "express",
+    "bilingual",
+    "kannada",
+    "instant-delivery"
+  ],
+  "author": "ShopMart Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
