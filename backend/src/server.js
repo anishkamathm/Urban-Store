@@ -22,7 +22,8 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: '*',
+  origin: (origin, callback) => callback(null, true),
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Accept-Language'],
 }));

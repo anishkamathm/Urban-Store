@@ -14,7 +14,7 @@
     "seed:opensearch": "cd backend && npm run seed:opensearch",
     "test:concurrency": "cd backend && npm run test:concurrency",
     "verify": "cd backend && npm run verify",
-    "build": "cd frontend && npm run build"
+    "build": "cd frontend && npm install && npm run build"
   },
   "keywords": [
     "aiven",
